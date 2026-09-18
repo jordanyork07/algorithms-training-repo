@@ -9,8 +9,13 @@ Constraints:
 Example:
 nums = [1, 2, 3, 1]
 return True
+
+How to test this:
+pytest -q reference_tests -k contains_duplicate
+# or
+pytest -q reference_tests/test_reference_solutions.py -k contains_duplicate
 """
 
 
 def contains_duplicate(nums):
-    raise NotImplementedError("Implement this function.")
+    return len(nums) != len(set(nums))

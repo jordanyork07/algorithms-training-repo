@@ -14,6 +14,11 @@ Example:
 nums = [1, 2, 3, 4, 6]
 target = 6
 return [1, 3]
+
+How to test this:
+pytest -q reference_tests -k pair_with_target_sum
+# or
+pytest -q reference_tests/test_reference_solutions.py -k pair_with_target_sum
 """
 
 

@@ -15,6 +15,11 @@ grid = [
     [0, 0, 0, 0, 0],
 ]
 return 1
+
+How to test this:
+pytest -q reference_tests -k number_of_islands
+# or
+pytest -q reference_tests/test_reference_solutions.py -k number_of_islands
 """
 
 

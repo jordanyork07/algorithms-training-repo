@@ -14,6 +14,11 @@ Example:
 nums = [2, 7, 11, 15]
 target = 9
 return [0, 1]
+
+How to test this:
+pytest -q reference_tests -k two_sum
+# or
+pytest -q reference_tests/test_reference_solutions.py -k two_sum
 """
 
 

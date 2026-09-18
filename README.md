@@ -47,6 +47,22 @@ python3 -m pip install -e '.[dev]'
 pytest reference_tests -q
 ```
 
+## Run one problem at a time
+You do not need to read every assertion in every problem file. Use pytest’s `-k` selector to run just the reference check for a single problem.
+
+```bash
+# run only the contains_duplicate reference test
+pytest -q reference_tests -k contains_duplicate
+
+# run only the two_sum reference test
+pytest -q reference_tests -k two_sum
+
+# run only the binary_search reference test
+pytest -q reference_tests -k binary_search
+```
+
+You can also run the entire suite whenever you want a broader sanity check.
+
 ## Best interview behaviors
 - Start by restating the problem in your own words
 - Mention the input/output contract and key constraints

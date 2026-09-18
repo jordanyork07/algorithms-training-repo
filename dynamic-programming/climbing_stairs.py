@@ -11,6 +11,11 @@ Example:
 
 Explanation:
 There are two ways: [1, 1] and [2].
+
+How to test this:
+pytest -q reference_tests -k climbing_stairs
+# or
+pytest -q reference_tests/test_reference_solutions.py -k climbing_stairs
 """
 
 

@@ -11,6 +11,11 @@ Example:
 nums = [-1, 0, 3, 5, 9, 12]
 target = 9
 return 4
+
+How to test this:
+pytest -q reference_tests -k binary_search
+# or
+pytest -q reference_tests/test_reference_solutions.py -k binary_search
 """
 
 

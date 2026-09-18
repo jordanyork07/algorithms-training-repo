@@ -11,6 +11,11 @@ Constraints:
 Example:
 s = "([)]"
 return False
+
+How to test this:
+pytest -q reference_tests -k valid_parentheses
+# or
+pytest -q reference_tests/test_reference_solutions.py -k valid_parentheses
 """
 
 

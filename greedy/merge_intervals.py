@@ -10,6 +10,11 @@ Constraints:
 Example:
 intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
 return [[1, 6], [8, 10], [15, 18]]
+
+How to test this:
+pytest -q reference_tests -k merge_intervals
+# or
+pytest -q reference_tests/test_reference_solutions.py -k merge_intervals
 """
 
 

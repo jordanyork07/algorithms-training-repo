@@ -11,6 +11,11 @@ Constraints:
 Example:
 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
 return [1, 1, 4, 2, 1, 1, 0, 0]
+
+How to test this:
+pytest -q reference_tests -k daily_temperatures
+# or
+pytest -q reference_tests/test_reference_solutions.py -k daily_temperatures
 """
 
 

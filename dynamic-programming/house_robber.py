@@ -15,6 +15,11 @@ return 4
 
 Explanation:
 Rob house 2 and house 4 for a total of 4.
+
+How to test this:
+pytest -q reference_tests -k house_robber
+# or
+pytest -q reference_tests/test_reference_solutions.py -k house_robber
 """
 
 

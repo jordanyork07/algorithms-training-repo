@@ -13,6 +13,11 @@ Example:
 candidates = [2, 3, 6, 7]
 target = 7
 return [[2, 2, 3], [7]]
+
+How to test this:
+pytest -q reference_tests -k combination_sum
+# or
+pytest -q reference_tests/test_reference_solutions.py -k combination_sum
 """
 
 

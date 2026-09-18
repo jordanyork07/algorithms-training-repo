@@ -11,6 +11,11 @@ Example:
 head = [1, 2, 3, 4, 5]
 n = 2
 return [1, 2, 3, 5]
+
+How to test this:
+pytest -q reference_tests -k remove_nth_from_end
+# or
+pytest -q reference_tests/test_reference_solutions.py -k remove_nth_from_end
 """
 
 

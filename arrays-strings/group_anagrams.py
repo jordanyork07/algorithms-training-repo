@@ -14,6 +14,11 @@ Constraints:
 Example:
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 return [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]
+
+How to test this:
+pytest -q reference_tests -k group_anagrams
+# or
+pytest -q reference_tests/test_reference_solutions.py -k group_anagrams
 """
 
 

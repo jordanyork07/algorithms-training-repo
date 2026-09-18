@@ -14,6 +14,11 @@ Example:
 nums = [1, 1, 1, 2, 2, 3]
 k = 2
 return [1, 2]
+
+How to test this:
+pytest -q reference_tests -k top_k_frequent
+# or
+pytest -q reference_tests/test_reference_solutions.py -k top_k_frequent
 """
 
 

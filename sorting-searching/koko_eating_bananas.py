@@ -14,6 +14,11 @@ Example:
 piles = [3, 6, 7, 11, 12]
 h = 8
 return 4
+
+How to test this:
+pytest -q reference_tests -k koko_eating_bananas
+# or
+pytest -q reference_tests/test_reference_solutions.py -k koko_eating_bananas
 """
 
 

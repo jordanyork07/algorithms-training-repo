@@ -11,6 +11,11 @@ Constraints:
 Example:
 root = [3, 9, 20, None, None, 15, 7]
 return 3
+
+How to test this:
+pytest -q reference_tests -k max_depth_binary_tree
+# or
+pytest -q reference_tests/test_reference_solutions.py -k max_depth_binary_tree
 """
 
 

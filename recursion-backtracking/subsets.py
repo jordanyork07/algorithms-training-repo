@@ -10,6 +10,11 @@ Constraints:
 Example:
 nums = [1, 2, 3]
 return [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]]
+
+How to test this:
+pytest -q reference_tests -k subsets
+# or
+pytest -q reference_tests/test_reference_solutions.py -k subsets
 """
 
 

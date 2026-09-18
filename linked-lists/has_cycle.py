@@ -14,6 +14,11 @@ return True
 
 Explanation:
 The value at index 1 points back to the node containing -4, creating a cycle.
+
+How to test this:
+pytest -q reference_tests -k has_cycle
+# or
+pytest -q reference_tests/test_reference_solutions.py -k has_cycle
 """
 
 

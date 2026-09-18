@@ -11,6 +11,11 @@ Constraints:
 Example:
  s = "abcabcbb"
  return 3
+
+How to test this:
+pytest -q reference_tests -k longest_substring_without_repeating_chars
+# or
+pytest -q reference_tests/test_reference_solutions.py -k longest_substring_without_repeating_chars
 """
 
 
