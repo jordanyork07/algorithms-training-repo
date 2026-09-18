@@ -48,16 +48,16 @@ pytest reference_tests -q
 ```
 
 ## Run one problem at a time
-You do not need to read every assertion in every problem file. Use pytest’s `-k` selector to run just the reference check for a single problem.
+You do not need to read every assertion in every problem file. Use pytest’s `-k` selector to run just the practice check for a single problem. These tests import the `.py` file you are editing; the `.solution.py` file is only a reference.
 
 ```bash
-# run only the contains_duplicate reference test
+# run only the contains_duplicate practice test
 pytest -q reference_tests -k contains_duplicate
 
-# run only the two_sum reference test
+# run only the two_sum practice test
 pytest -q reference_tests -k two_sum
 
-# run only the binary_search reference test
+# run only the binary_search practice test
 pytest -q reference_tests -k binary_search
 ```
 

@@ -23,4 +23,9 @@ pytest -q reference_tests/test_reference_solutions.py -k top_k_frequent
 
 
 def top_k_frequent(nums, k):
-    raise NotImplementedError("Implement this function.")
+    freq_map = {}
+    for n in nums:
+        freq_map[n] = freq_map.get(n, 0) + 1
+
+    freq_map_sorted = sorted(freq_map.items(), key=lambda x: x[1], reverse=True)
+    return [x[0] for x in freq_map_sorted[:k]]

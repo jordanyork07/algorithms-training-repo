@@ -23,4 +23,12 @@ pytest -q reference_tests/test_reference_solutions.py -k pair_with_target_sum
 
 
 def pair_with_target_sum(nums, target):
-    raise NotImplementedError("Implement this function.")
+    for i in nums:
+        difference = target - i
+        if difference in nums:
+            indexI = nums.index(i)
+            indexDifference = nums.index(difference)
+
+            return [indexI, indexDifference] if indexI < indexDifference else [indexDifference, indexI]
+
+    return []

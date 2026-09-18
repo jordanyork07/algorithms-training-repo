@@ -2,7 +2,7 @@
 
 The practice files in each topic folder intentionally raise NotImplementedError until you implement them.
 
-Use the `reference_tests/` directory to validate known-good solutions and keep the practice loop realistic.
+Use the `reference_tests/` directory to validate the practice files you are editing and keep the practice loop realistic. The matching `.solution.py` files are available only as reference implementations.
 
 ## 40-minute interview simulation
 
