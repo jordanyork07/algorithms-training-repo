@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: algorithms-training-repo
+Version: 0.1.0
+Summary: Python algorithm interview practice repo
+Requires-Python: >=3.11
+Provides-Extra: dev
+Requires-Dist: pytest==8.3.2; extra == "dev"
+Requires-Dist: black==24.8.0; extra == "dev"
+Requires-Dist: ruff==0.6.8; extra == "dev"

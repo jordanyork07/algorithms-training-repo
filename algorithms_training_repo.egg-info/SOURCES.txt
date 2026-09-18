@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+algorithms_training_repo.egg-info/PKG-INFO
+algorithms_training_repo.egg-info/SOURCES.txt
+algorithms_training_repo.egg-info/dependency_links.txt
+algorithms_training_repo.egg-info/requires.txt
+algorithms_training_repo.egg-info/top_level.txt
