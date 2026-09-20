@@ -69,6 +69,30 @@ def test_group_anagrams_practice():
     assert len(result) == 1 and sorted(result[0]) == ["", ""]
 
 
+def test_valid_anagram_practice():
+    module = load_module("arrays-strings", "valid_anagram")
+    assert module.valid_anagram("", "") is True
+    assert module.valid_anagram("anagram", "nagaram") is True
+    assert module.valid_anagram("rat", "car") is False
+    assert module.valid_anagram("aacc", "ccaa") is True
+
+
+def test_valid_palindrome_practice():
+    module = load_module("arrays-strings", "valid_palindrome")
+    assert module.valid_palindrome("") is True
+    assert module.valid_palindrome("A man, a plan, a canal: Panama") is True
+    assert module.valid_palindrome("race a car") is False
+    assert module.valid_palindrome("abba") is True
+
+
+def test_best_time_to_buy_and_sell_stock_practice():
+    module = load_module("arrays-strings", "best_time_to_buy_and_sell_stock")
+    assert module.best_time_to_buy_and_sell_stock([7, 1, 5, 3, 6, 4]) == 5
+    assert module.best_time_to_buy_and_sell_stock([7, 6, 4, 3, 1]) == 0
+    assert module.best_time_to_buy_and_sell_stock([1, 2]) == 1
+    assert module.best_time_to_buy_and_sell_stock([]) == 0
+
+
 def test_two_sum_practice():
     module = load_module("hashmaps", "two_sum")
     assert module.two_sum([2, 7, 11, 15], 9) == [0, 1]
@@ -181,6 +205,13 @@ def test_has_cycle_practice():
         tail = tail.next
     tail.next = head.next
     assert module.has_cycle(head) is True
+
+
+def test_reverse_linked_list_practice():
+    module = load_module("linked-lists", "reverse_linked_list")
+    assert linked_list_to_list(module.reverse_linked_list(None)) == []
+    assert linked_list_to_list(module.reverse_linked_list(as_linked_list([1, 2, 3, 4]))) == [4, 3, 2, 1]
+    assert linked_list_to_list(module.reverse_linked_list(as_linked_list([1]))) == [1]
 
 
 def test_max_depth_binary_tree_practice():

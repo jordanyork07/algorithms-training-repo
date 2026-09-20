@@ -18,4 +18,10 @@ pytest -q reference_tests/test_reference_solutions.py -k contains_duplicate
 
 
 def contains_duplicate(nums):
-    return len(nums) != len(set(nums))
+    seen = set()
+    for n in nums:
+        if n in seen:
+            return True
+        seen.add(n)
+
+    return False

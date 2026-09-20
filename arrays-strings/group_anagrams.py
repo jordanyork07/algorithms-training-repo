@@ -23,4 +23,8 @@ pytest -q reference_tests/test_reference_solutions.py -k group_anagrams
 
 
 def group_anagrams(strs):
-    raise NotImplementedError("Implement this function.")
+    groups = {}
+    for word in strs:
+        key = ''.join(sorted(word))
+        groups.setdefault(key, []).append(word)
+    return list(groups.values())
