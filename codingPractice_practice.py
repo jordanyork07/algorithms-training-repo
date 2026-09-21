@@ -44,20 +44,20 @@ def max_profit(prices):
 def length_of_longest_substring(text):
 	left = 0
 	seen = {}
-	longestLength = 0
-	for right, char in enumerate(text):
+	best = 0
+	for rightIndex, char in enumerate(text):
 		if char in seen and seen[char] >= left:
 			left = seen[char] + 1
-		seen[char] = right
-		longestLength = max(longestLength, right - left + 1)
-	return longestLength
+		seen[char] = rightIndex
+		best = max(best, rightIndex - left + 1)
+	return best
 
 
 def binary_search(numbers, target):
 	left = 0
 	right = len(numbers) - 1
 	while left <= right:
-		mid = left + (right - left) // 2
+		mid = (left + right) // 2
 		if numbers[mid] == target:
 			return mid
 		elif numbers[mid] < target:
@@ -94,7 +94,16 @@ def max_depth(root):
 #Cutoff for must-know problems
 
 def reverse_linked_list(head):
-	pass
+	previous = None
+	current = head
+
+	while current is not None:
+		next = current.next
+		current.next = previous
+		previous = current
+		current = next
+
+	return previous
 
 
 def merge_intervals(intervals):
@@ -102,7 +111,28 @@ def merge_intervals(intervals):
 
 
 def number_of_islands(grid):
-	pass
+	if grid is None or len(grid) == 0:
+		return 0
+
+	def dfs(grid, row, column):
+		if row < 0 or row >= len(grid) or column < 0 or column >= len(grid[0]) or grid[row][column] == "0":
+			return
+		grid[row][column] = "0"
+		dfs(grid, row + 1, column)
+		dfs(grid, row - 1, column)
+		dfs(grid, row, column + 1)
+		dfs(grid, row, column - 1)
+
+	islandCount = 0
+	rows = len(grid)
+	columns = len(grid[0])
+
+	for row in range(rows):
+		for column in range(columns):
+			if grid[row][column] == "1":
+				islandCount += 1
+				dfs(grid, row, column)
+	return islandCount
 
 
 def climbing_stairs(steps):
