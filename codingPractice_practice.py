@@ -12,11 +12,14 @@ class TreeNode:
 
 
 def two_sum(numbers, target):
-    for number in numbers:
-        complement = target - number
-        if complement in numbers:
-            return [numbers.index(number), numbers.index(complement)]
-    return []
+	seen = {}
+	for i, number in enumerate(numbers):
+		complement = target - number
+		if complement in seen:
+			return [seen[complement], i]
+		seen[number] = i
+
+	return []
 
 
 def contains_duplicate(numbers):
@@ -164,9 +167,9 @@ def run_examples():
 	assert is_valid_palindrome("race a car") is False
 	assert max_profit([7, 1, 5, 3, 6, 4]) == 5
 	assert binary_search([-1, 0, 3, 5, 9, 12], 9) == 4
-	assert min_eating_speed([3, 6, 7, 11], 8) == 4
 	assert is_valid_parentheses("([]{})") is True
 	assert is_valid_parentheses("([)]") is False
+	assert min_eating_speed([3, 6, 7, 11], 8) == 4
 
 	tree = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
 	assert max_depth(tree) == 3
