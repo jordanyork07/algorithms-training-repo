@@ -12,53 +12,160 @@ class TreeNode:
 
 
 def two_sum(numbers, target):
-    pass
+    seen = {}
+
+    for i, number in enumerate(numbers):
+        complement = target - number
+        if complement in seen:
+            return [seen[complement], i]
+        seen[number] = i
+
+    return []
 
 
 def contains_duplicate(numbers):
-    pass
+    return len(numbers) != len(set(numbers))
 
 
 def is_valid_anagram(first, second):
-    pass
+    return sorted(first) == sorted(second)
 
 
 def is_valid_palindrome(text):
-    pass
+    cleanedString = ''.join(char.lower() for char in text if char.isalnum())
+    return cleanedString == cleanedString[::-1]
 
 
 def max_profit(prices):
-    pass
+    minProf = float('inf')
+    maxProf = float('-inf')
+
+    for p in prices:
+        minProf = min(minProf, p)
+        maxProf = max(maxProf, p - minProf)
+
+    return maxProf
 
 
 def length_of_longest_substring(text):
-    pass
+    left = 0
+    seen = {}
+    best = 0
+
+    for right, char in enumerate(text):
+        if char in seen and seen[char] >= left:
+            left = seen[char] + 1
+        seen[char] = right
+        best = max(best, right - left + 1)
+
+    return best
 
 
 def binary_search(numbers, target):
-    pass
+    left = 0
+    right = len(numbers) - 1
+
+    while left <= right:
+        middle = (left + right) // 2
+        if numbers[middle] == target:
+            return middle
+        elif numbers[middle] < target:
+            left = middle + 1
+        else:
+            right = middle - 1
+
+    return -1
 
 
 def is_valid_parentheses(text):
-    pass
+    pairs = {')': '(', '}': '{', ']': '['}
+    stack = []
+
+    for char in text:
+        if char in pairs:
+            if not stack or stack[-1] != pairs[char]:
+                return False
+            stack.pop()
+        else:
+            stack.append(char)
+
+    return not stack
 
 
 def max_depth(root):
-    pass
+    if not root:
+        return 0
+    leftDepth = max_depth(root.left)
+    rightDepth = max_depth(root.right)
+
+    return 1 + max(leftDepth, rightDepth)
 
 
 # Cutoff for must-know problems
 
 def reverse_linked_list(head):
-    pass
+    previous = None
+    current = head
+
+    while current is not None:
+        next = current.next
+        current.next = previous
+        previous = current
+        current = next
+
+    return previous
 
 
 def number_of_islands(grid):
-    pass
+    if not grid or len(grid) == 0:
+        return 0
 
+    islandCount = 0
+    totalRows = len(grid)
+    totalColumns = len(grid[0])
+
+    def dfs(row, column):
+        if 0 > row or row >= totalRows or 0 > column or column >= totalColumns or grid[row][column] == "0":
+            return
+        grid[row][column] = "0"
+        dfs(row - 1, column)
+        dfs(row + 1, column)
+        dfs(row, column - 1)
+        dfs(row, column + 1)
+
+    for row in range(totalRows):
+        for column in range(totalColumns):
+            if grid[row][column] == "1":
+                islandCount += 1
+                dfs(row, column)
+
+    return islandCount
+
+def merge_intervals(intervals):
+    if not intervals:
+        return []
+
+    intervals.sort(key=lambda x: x[0])
+    merged = [intervals[0]]
+
+    for current in intervals[1:]:
+        lastMerged = merged[-1]
+        if current[0] <= lastMerged[1]:
+            lastMerged[1] = max(lastMerged[1], current[1])
+        else:
+            merged.append(current)
+
+    return merged
 
 def linked_list_values(head):
-    pass
+    values = []
+    current = head
+
+    while current is not None:
+        values.append(current.value)
+        current = current.next
+
+    return values
 
 
 # These tests are intentionally unchanged so you can implement one function at a time.
@@ -75,6 +182,10 @@ def run_examples():
     assert binary_search([-1, 0, 3, 5, 9, 12], 9) == 4
     assert is_valid_parentheses("([]{})") is True
     assert is_valid_parentheses("([)]") is False
+
+    assert merge_intervals([[1, 3], [2, 6], [8, 10], [9, 12]]) == [
+		[1, 6], [8, 12]
+	]
 
     tree = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
     assert max_depth(tree) == 3
